@@ -1,4 +1,4 @@
-import PokemonDetail from "../pages/pokemon-detail";
+import PokemonInfo from "../pages/pokemon-info";
 import PokemonList from "../pages/pokemon-list";
 import NotFound from "../pages/not-found";
 
@@ -13,7 +13,7 @@ const ROUTES = [
     path: ["/pokemon/:id"],
     key: "DETAILS",
     exact: false,
-    component: PokemonDetail,
+    component: PokemonInfo,
   },
   {
     key: "NOT FOUND",
