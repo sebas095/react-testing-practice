@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.0",
     "@testing-library/user-event": "^12.2.2",
+    "enzyme": "^3.11.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
@@ -16,8 +17,10 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "CI=true react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "storybook": "start-storybook -p 9009 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "eslintConfig": {
     "extends": [
@@ -36,5 +39,23 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@storybook/addon-actions": "^6.1.6",
+    "@storybook/addon-knobs": "^6.1.6",
+    "@storybook/addon-links": "^6.1.6",
+    "@storybook/addons": "^6.1.6",
+    "@storybook/preset-create-react-app": "^3.1.5",
+    "@storybook/react": "^6.1.6",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.3.1",
+    "enzyme-to-json": "^3.6.1",
+    "husky": "^4.3.0",
+    "jest-styled-components": "^7.0.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test",
+      "pre-push": "npm test"
+    }
   }
 }
